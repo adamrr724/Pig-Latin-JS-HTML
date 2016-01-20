@@ -11,6 +11,12 @@ describe("pigLatin", function() {
   it("takes two consonants at the beginning of a word and moves them to the end", function () {
       expect(pigLatin("cricket")).to.equal("icketcray");
   });
+  it("if the first two letters are 'qu' it moves them to the end", function () {
+      expect(pigLatin("quest")).to.equal("estquay");
+  });
+  it("if the first letter is 'y', y is moved to the end", function () {
+      expect(pigLatin("you")).to.equal("ouyay");
+  });
 });
 
 // describe("hasConsonantAt", function() {

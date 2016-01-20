@@ -1,6 +1,6 @@
 var indexOfFirstVowel = function(word) {
 
-  var vowels = ['a', 'e', 'i', 'o', 'u'];
+  var vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
   var letters = word.split("");
 
   for (var i = 0; i < letters.length; i++) {
@@ -13,9 +13,39 @@ var indexOfFirstVowel = function(word) {
 }
 
   var pigLatin = function(englishWord) {
-  var splitAt = indexOfFirstVowel(englishWord);
-  return englishWord.slice(splitAt) + englishWord.slice(0, splitAt) + 'ay';
-}
+    if (qCheck(englishWord)) {
+      var splitAt = 2;
+    } else if (yCheck(englishWord)) {
+      var splitAt = 1;
+    }
+      else {
+      var splitAt = indexOfFirstVowel(englishWord);
+    }
+      return englishWord.slice(splitAt) + englishWord.slice(0, splitAt) + 'ay';
+  };
+
+  var qCheck = function(word) {
+
+     var firstletter = word[0];
+
+    if (firstletter === "q") {
+      return true;
+    } else {
+      return false;
+    }
+   }
+
+   var yCheck = function(word) {
+
+      var firstletter = word[0];
+
+     if (firstletter === "y") {
+       return true;
+     } else {
+       return false;
+     }
+    }
+
 
 
 //   if (!hasConsonantAt(englishWord, 0)) {

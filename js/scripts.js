@@ -1,16 +1,14 @@
-var indexOfFirstVowel = function(word) {
 
-  var vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
-  var letters = word.split("");
+var manyWordFunction = function(words) {
 
-  for (var i = 0; i < letters.length; i++) {
-    for (var j = 0; j < vowels.length; j++) {
-      if (letters[i] === vowels[j]) {
-        return i;
-      }
-    }
+  var manyWords = words.split(" ");
+
+  for (var i = 0; i < manyWords.length; i++) {
+    manyWords[i] = pigLatin(manyWords[i]);
   }
-}
+  manyWords = manyWords.join(" ");
+  return manyWords;
+};
 
   var pigLatin = function(englishWord) {
     if (qCheck(englishWord)) {
@@ -46,6 +44,20 @@ var indexOfFirstVowel = function(word) {
      }
     }
 
+    var indexOfFirstVowel = function(word) {
+
+      var vowels = ['a', 'e', 'i', 'o', 'u', 'y'];
+      var letters = word.split("");
+
+      for (var i = 0; i < letters.length; i++) {
+        for (var j = 0; j < vowels.length; j++) {
+          if (letters[i] === vowels[j]) {
+            return i;
+          }
+        }
+      }
+    }
+
 
 
 //   if (!hasConsonantAt(englishWord, 0)) {
@@ -74,7 +86,7 @@ $(document).ready(function(event) {
     $("form#pigLatin").submit(function(event){
 
       var word = $("input#message").val();
-      var result = pigLatin(word);
+      var result = manyWordFunction(word);
 
   $(".result").text(result);
   $("#result").show();

@@ -19,6 +19,12 @@ describe("pigLatin", function() {
   });
 });
 
+describe("manyWordFunction", function () {
+  it("runs the function for more than one word", function () {
+      expect(manyWordFunction("you there")).to.equal("ouyay erethay");
+  });
+});
+
 // describe("hasConsonantAt", function() {
 //   it("returns true if a word has a consonant in the specified spot", function() {
 //     expect(hasConsonantAt("peanut", 0)).to.equal(true);
